@@ -1,0 +1,33 @@
+<h2>Products</h2>
+
+<div *ngFor="let product of products">
+  <h3>
+    <!-- property binding: bind product.name property to the title attribute -->
+    <a [title]="product.name + ' details'">
+      <!-- list the product.name property as link content -->
+      {{product.name}}
+    </a>
+  </h3>
+
+  <!-- add p tag only if the product description is available -->
+  <p *ngIf="product.description">
+    Description: {{product.description}}
+  </p>
+
+  <!-- add event on click: call product-list.component.ts -> share() -->
+  <button (click)="share()">
+    share
+  </button>
+
+  <!-- Add a child component "app-product-alerts" using the property binding, passing the current "product" as a parameter" -->
+  <!-- receive data from the ProductAlertsComponent. Call the onNotify() method of the product list component -->
+  <app-product-alerts [product]="product" (notify)="onNotify()">
+  </app-product-alerts>
+</div>
+
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->

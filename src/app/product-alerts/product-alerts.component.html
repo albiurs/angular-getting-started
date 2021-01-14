@@ -1,0 +1,6 @@
+<!-- child component -->
+<!-- product-alerts component button, only shown if the product price > $700 -->
+<p *ngIf="product.price > 700">
+  <!-- on button click, call the EventEmitter's "notify.emit()" method in product-alerts.component.ts -->
+  <button (click)="notify.emit()">Notifiy Me</button>
+</p>
