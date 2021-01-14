@@ -14,10 +14,13 @@ import { Output, EventEmitter } from '@angular/core'; // module to pass outputs 
   styleUrls: ['./product-alerts.component.css']
 })
 export class ProductAlertsComponent implements OnInit {
-  @Input() product;                     // var "product" used as input var
+// export class ProductAlertsComponent {
+  @Input() product: any;                     // var "product" used as input var
+  // tslint:disable-next-line:new-parens
   @Output() notify = new EventEmitter;  // var "notify" used as output var
 
   constructor() { } // ignored
 
+  // tslint:disable-next-line:typedef
   ngOnInit() { }    // ignored
 }
