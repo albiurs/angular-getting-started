@@ -3,7 +3,8 @@
 <div *ngFor="let product of products">
   <h3>
     <!-- property binding: bind product.name property to the title attribute -->
-    <a [title]="product.name + ' details'">
+    <!-- property binding: bind router link from app.module.ts to product-details url as the attribute -->
+    <a [title]="product.name + ' details'" [routerLink]="['/products', product.id]">
       <!-- list the product.name property as link content -->
       {{product.name}}
     </a>
