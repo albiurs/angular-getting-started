@@ -2,20 +2,34 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';  // Angular HttpClient is a built-in way to fetch data from external APIs and
+// provide them to your application as a stream.
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { ProductAlertsComponent } from './product-alerts/product-alerts.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CartComponent } from './cart/cart.component';
+import { ShippingComponent } from './shipping/shipping.component';
 
+
+/**
+ * Register GLOBAL components:
+ * - imports
+ * - declarations
+ * - bootstrap
+ */
 @NgModule({
   imports: [
     BrowserModule,
+    HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: ProductListComponent },  // add root path "/" for the route of the ProductListComponent
       { path: 'products/:productId', component: ProductDetailsComponent },  // add a route for productDetailsComponent
+      { path: 'cart', component: CartComponent},
+      { path: 'shipping', component: ShippingComponent},
     ])
   ],
   declarations: [
@@ -23,7 +37,9 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
     TopBarComponent,
     ProductListComponent,
     ProductAlertsComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    CartComponent,
+    ShippingComponent
   ],
   bootstrap: [
     AppComponent

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { products } from '../products';
+import { CartService } from '../cart.service';
+import {any} from 'codelyzer/util/function';
 
 @Component({
   selector: 'app-product-details',
@@ -19,10 +21,12 @@ export class ProductDetailsComponent implements OnInit {
    * ActivatedRoute is specific to each component that the Angular Router loads.
    * ActivatedRoute contains information about the route and the route's parameters.
    * By injecting ActivatedRoute, you are configuring the component to use a service.
-   * @param route ActivatedRoute
+   * @param route ActivatedRoute module
+   * @param cartService CartService module
    */
   constructor(
     private route: ActivatedRoute,
+    private cartService: CartService
   ) { }
 
   /**
@@ -40,4 +44,8 @@ export class ProductDetailsComponent implements OnInit {
     this.product = products.find(product => product.id === productIdFromRoute);
   }
 
+  addToCart(product: any): void {
+    this.cartService.addToCart(product);
+    window.alert('Your product has been added to the cart.');
+  }
 }

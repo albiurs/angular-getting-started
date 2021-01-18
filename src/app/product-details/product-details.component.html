@@ -1,9 +1,12 @@
 <h2>Product Details</h2>
 
+<!-- if there is a product available, include the div tag -->
 <div *ngIf="product">
   <h3>{{product.name}}</h3>
   <!-- The line, <h4>{{ product.price | currency }}</h4>, uses the currency pipe to transform product.price from a
   number to a currency string. A pipe is a way you can transform data in your HTML template. -->
   <h4>{{product.price | currency}}</h4>
   <p>{{product.description}}</p>
+
+  <button (click)="addToCart(product)">Buy</button>
 </div>
