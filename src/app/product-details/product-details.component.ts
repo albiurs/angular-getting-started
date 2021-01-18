@@ -12,8 +12,7 @@ import {any} from 'codelyzer/util/function';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  product: any;
-
+  product: any; // public?!?!
 
   /**
    * Inject ActivatedRoute into the constructor() by adding private route: ActivatedRoute
@@ -44,6 +43,10 @@ export class ProductDetailsComponent implements OnInit {
     this.product = products.find(product => product.id === productIdFromRoute);
   }
 
+  /**
+   * Add new item to the CartService in cart.service.ts
+   * @param product product to be added to the cart
+   */
   addToCart(product: any): void {
     this.cartService.addToCart(product);
     window.alert('Your product has been added to the cart.');

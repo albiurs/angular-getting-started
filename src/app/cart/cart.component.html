@@ -1,9 +1,11 @@
 <h3>Cart</h3>
 
 <p>
+  <!-- route to the shipping prices component -->
   <a routerLink="/shipping">Shipping Prices</a>
 </p>
 
+<!-- inject current items in the cart -->
 <div class="cart-item" *ngFor="let item of items">
   <span>{{item.name}}</span>
   <span>{{item.price | currency}}</span>

@@ -9,11 +9,12 @@ import { CartService } from '../cart.service';
 })
 export class ShippingComponent implements OnInit {
 
-  private shippingCosts: any;
+  public shippingCosts: any;  // public?!?!
 
   constructor(
     private cartService: CartService,
   ) {
+    // fetch shipping prices from external resource through the CartService
     this.shippingCosts = this.cartService.getShippingPrices();
   }
 

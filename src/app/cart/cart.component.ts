@@ -8,11 +8,12 @@ import { CartService } from '../cart.service';
 })
 export class CartComponent implements OnInit {
 
-  private items: any[];
+  public items: any[];  // public?!?!?!
 
   constructor(
     private cartService: CartService,
   ) {
+    // get cart items from the CatService in cart.service.ts
     this.items = this.cartService.getItems();
   }
 
