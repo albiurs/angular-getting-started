@@ -9,7 +9,7 @@ import { CartService } from '../cart.service';
 })
 export class ShippingComponent implements OnInit {
 
-  public shippingCosts: any;  // public?!?!
+  public shippingCosts: any;
 
   constructor(
     private cartService: CartService,

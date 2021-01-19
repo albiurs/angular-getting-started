@@ -12,7 +12,7 @@ import {any} from 'codelyzer/util/function';
 })
 export class ProductDetailsComponent implements OnInit {
 
-  product: any; // public?!?!
+  public product: any;
 
   /**
    * Inject ActivatedRoute into the constructor() by adding private route: ActivatedRoute

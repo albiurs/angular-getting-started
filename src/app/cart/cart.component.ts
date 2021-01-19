@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';   // Angular FormBuilder service
+
 import { CartService } from '../cart.service';
 
 @Component({
@@ -8,16 +10,31 @@ import { CartService } from '../cart.service';
 })
 export class CartComponent implements OnInit {
 
-  public items: any[];  // public?!?!?!
+  // == fields ==
+  public items: any[];
+  public checkoutForm: any;
 
   constructor(
     private cartService: CartService,
+    private formBuilder: FormBuilder,
   ) {
     // get cart items from the CatService in cart.service.ts
     this.items = this.cartService.getItems();
+    this.checkoutForm = this.formBuilder.group({
+      name: '',
+      address: ''
+    });
   }
 
   ngOnInit(): void {
   }
 
+  onSubmit(): void {
+    // process chckout data
+    this.items = this.cartService.clearCart();
+    // print warning to the browser's console with the contents of the form
+    console.warn('Your order has been submitted', this.checkoutForm.value);
+    // To confirm submission, open the console to see an object containing the name and address you submitted.
+    this.checkoutForm.reset();  // reset the checkoutForm
+  }
 }
