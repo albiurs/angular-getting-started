@@ -34,7 +34,7 @@ export class ProductDetailsComponent implements OnInit {
    * about the active route at that particular moment in time. The URL that matches the route provides the productId .
    * Angular uses the productId to display the details for each unique product.
    */
-  ngOnInit(): void {
+  public ngOnInit(): void {
     // First extract the productId from the route parameters.
     const routeParams = this.route.snapshot.paramMap;
     const productIdFromRoute = Number(routeParams.get('productId'));
@@ -47,7 +47,7 @@ export class ProductDetailsComponent implements OnInit {
    * Add new item to the CartService in cart.service.ts
    * @param product product to be added to the cart
    */
-  addToCart(product: any): void {
+  public addToCart(product: any): void {
     this.cartService.addToCart(product);
     window.alert('Your product has been added to the cart.');
   }
